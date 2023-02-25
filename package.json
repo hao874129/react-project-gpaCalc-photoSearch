@@ -1,8 +1,8 @@
 {
-  "name": "preactice",
+  "name": "react-project-gpacalc-photosearch",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hao874129.github.io/photo-search/",
+  "homepage": "https://hao874129.github.io/react-project-gpacalc-photosearch/",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
