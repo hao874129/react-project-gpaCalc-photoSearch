@@ -1,3 +1,5 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +7,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Baloo 2", sans-serif;
 }
 
 a {
@@ -24,62 +26,173 @@ ul {
   padding: 4rem;
 }
 .morePicture button {
-  padding: 0.5rem 0.75rem;
-  font-size: 1.5rem;
-  border: none;
-  background-color: rgb(186, 252, 181);
-  cursor: pointer;
-}
-
-nav {
-  background-color: rgb(228, 255, 226);
-}
-nav ul {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 2rem;
-}
-nav ul li {
-  padding: 0.5rem 1rem;
-}
-nav ul li a {
-  font-size: 1.25rem;
-}
-
-.search {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 3rem 0rem;
-}
-.search input,
-.search button {
-  font-size: 2rem;
-  padding: 0.25rem;
-  border: 3px solid rgb(186, 252, 181);
-}
-.search button {
-  background-color: rgb(186, 252, 181);
+  font-size: 1rem;
+  padding: 1.25rem 2rem;
 }
 
 .footer {
+  background-color: #374157;
+  padding: 25px 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 25px 50px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .footer {
+    padding: 10px 15px;
+    flex-direction: column;
+  }
+}
+.footer .icon-bar {
+  display: flex;
+  justify-content: space-around;
+  width: 110px;
+}
+
+.home {
+  text-align: center;
+}
+.home .home_wrapper {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  /* logo外圓圈 */
+}
+.home .home_wrapper .logo_img {
+  width: 40vmin;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .home .home_wrapper .logo_img {
+    animation: logo_img-spin infinite 20s linear;
+  }
+}
+.home .home_wrapper .logo_wrapper {
+  max-width: 40vh;
+  position: relative;
+}
+@media screen and (max-width: 450px) {
+  .home .home_wrapper .logo_wrapper {
+    max-width: 25vh;
+  }
+}
+.home .home_wrapper .logo_wrapper img {
+  width: 100%;
+  display: block;
+  border-radius: 50%;
+}
+.home .home_wrapper .logo_wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -15px;
+  border: 5px solid #282c34;
+  border-top-color: #5f6d89;
+  border-bottom-color: #7f8fb0;
+  border-radius: 50%;
+  animation: spin 3s ease-in-out infinite;
+}
+@keyframes logo_img-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+.home .typewriter {
+  position: absolute;
+  top: 80%;
+  left: 46%;
+  color: #d1dddb;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+@media screen and (max-width: 1400px) {
+  .home .typewriter {
+    left: 43%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .home .typewriter {
+    left: 40%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .home .typewriter {
+    left: 36%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .home .typewriter {
+    top: 70%;
+    font-size: 1.5rem;
+  }
+}
+
+section.animation-wrapper {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #F2F0ED;
+}
+section.animation-wrapper section.animation-zone {
+  margin-top: 10vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.25rem;
-  background-color: rgb(228, 255, 226);
-  min-height: 10vh;
+}
+section.animation-wrapper section.animation-zone .pic-zone {
+  width: 100%;
+  height: 0;
+}
+section.animation-wrapper section.animation-zone .pic-zone img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  vertical-align: middle;
+}
+section.animation-wrapper div.animation-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to right, rgb(144, 144, 144), rgb(0, 0, 0));
+  z-index: -1;
 }
 
 .pictures {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 .pictures .picture {
   padding: 1rem;
-  width: 400px;
+  width: 300px;
 }
 .pictures .picture .imageContainer {
   overflow: hidden;
@@ -94,4 +207,112 @@ nav ul li a {
 }
 .pictures .picture .imageContainer img:hover {
   transform: scale(1.25);
+}
+
+.gpa-calc {
+  padding: 3rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.gpa-calc .buttons {
+  margin: 2rem 0 2rem;
+}
+.gpa-calc .buttons button {
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  margin: 0 0.5rem;
+  color: #d1dddb;
+}
+.gpa-calc div.all-inputs form {
+  font-size: 0;
+  animation: scaleUp 0.5s ease forwards;
+}
+.gpa-calc div.all-inputs form input,
+.gpa-calc div.all-inputs form select {
+  font-size: 1.05rem;
+  padding: 0.5rem;
+  border: 0.25px solid rgb(39, 39, 20);
+  margin: 0.35rem;
+  border-radius: 0.25rem;
+}
+.gpa-calc div.all-inputs form input {
+  width: 30%;
+}
+.gpa-calc div.all-inputs form input.class-credit {
+  width: 15%;
+}
+@media screen and (max-width: 550px) {
+  .gpa-calc div.all-inputs form input {
+    width: 40%;
+  }
+  .gpa-calc div.all-inputs form input.class-credit {
+    width: 40%;
+  }
+}
+.gpa-calc div.all-inputs form button {
+  margin-left: 0.25rem;
+  border: none;
+  cursor: pointer;
+  background-color: #F2F0ED;
+}
+.gpa-calc div.all-inputs form button i {
+  font-size: 1.25rem;
+  pointer-events: none;
+  color: #374157;
+}
+.gpa-calc button.plus-btn {
+  background-color: #F2F0ED;
+  border: none;
+  width: 2.5rem;
+  margin: 2rem 0rem 2rem;
+  cursor: pointer;
+}
+.gpa-calc button.plus-btn i {
+  font-size: 2.5rem;
+  color: #5f6d89;
+}
+.gpa-calc div.result {
+  margin: 2rem 0;
+  width: 200px;
+  height: 200px;
+  border: 3px solid red;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: border_color 8s infinite;
+}
+.gpa-calc div.result h2#result-gpa {
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+@keyframes scaleUp {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes scaleDown {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+@keyframes border_color {
+  0% {
+    border-color: red;
+  }
+  33% {
+    border-color: limegreen;
+  }
+  66% {
+    border-color: yellow;
+  }
 }/*# sourceMappingURL=style.css.map */

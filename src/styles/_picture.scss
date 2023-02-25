@@ -2,11 +2,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   .picture {
     padding: 1rem;
-    width: 400px;
+    width: 300px;
     .imageContainer {
       overflow: hidden;
       height: 40vh;

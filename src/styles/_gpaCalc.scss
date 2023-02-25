@@ -1,0 +1,135 @@
+.gpa-calc {
+  padding: 3rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  .buttons {
+    margin: 2rem 0 2rem;
+
+    button {
+      font-size: 1rem;
+      padding: 1rem 1.5rem;
+      margin: 0 .5rem;
+      color: #d1dddb;
+    }
+  }
+  
+  div.all-inputs {
+    form {
+      font-size: 0; // 避免欄位之間有間隙
+
+      animation: scaleUp 0.5s ease forwards;
+
+      input,
+      select {
+        font-size: 1.05rem;
+        padding: 0.5rem;
+        border: 0.25px solid rgb(39, 39, 20);
+        margin: 0.35rem;
+        border-radius: 0.25rem;
+      }
+
+      input {
+        width: 30%;
+      }
+
+      input.class-credit {
+        width: 15%;
+      }
+
+      @media screen and (max-width:550px) {
+        input {
+          width: 40%;
+        }
+        input.class-credit {
+          width: 40%;;
+        }
+      }
+
+      button {
+        margin-left: 0.25rem;
+        border: none;
+        cursor: pointer;
+        background-color: #F2F0ED;
+
+        i {
+          font-size: 1.25rem;
+          pointer-events: none;
+          color: #374157;
+        }
+      }
+    }
+  }
+
+  button.plus-btn {
+    background-color: #F2F0ED;
+    border: none;
+    width: 2.5rem;
+    margin: 2rem 0rem 2rem;
+    cursor: pointer;
+
+    i {
+      font-size: 2.5rem;
+      color: #5f6d89;
+    }
+  }
+
+  div.result {
+    margin: 2rem 0;
+    width: 200px;
+    height: 200px;
+    border: 3px solid red;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: border_color 8s infinite;
+
+    h2#result-gpa {
+      font-size: 3.5rem;
+      font-weight: bold;
+    }
+  }
+
+  // .remove {
+  //   transform: scale(0);
+  //   transition: all 0.5s ease;
+  // }
+
+  @keyframes scaleUp {
+    from {
+      transform: scale(0);
+    }
+
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes scaleDown {
+    from {
+      transform: scale(1);
+    }
+
+    to {
+      transform: scale(0);
+    }
+  }
+
+  @keyframes border_color {
+    0% {
+      border-color: red;
+    }
+
+    33% {
+      border-color: limegreen;
+    }
+
+    66% {
+      border-color: yellow;
+    }
+  }
+}

@@ -1,20 +1,13 @@
-import { Outlet, Link } from "react-router-dom"
+// import { Outlet, Link } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import React from 'react'
 import Footer from './pages/components/Footer'
+import Header from './pages/components/Header'
 
 const Layout = () => {
   return (
     <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/#">首頁</Link>
-          </li>
-          <li>
-            <Link to="about">關於這個網站</Link>
-          </li>
-        </ul>
-      </nav>
+      <Header />
 
       <Outlet />
 

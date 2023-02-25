@@ -1,0 +1,95 @@
+.home {
+  text-align: center;
+
+  .home_wrapper {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+
+    .logo_img {
+      width: 40vmin;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .logo_img {
+        animation: logo_img-spin infinite 20s linear;
+      }
+    }
+
+    /* logo外圓圈 */
+    .logo_wrapper {
+      max-width: 40vh;
+      position: relative;
+
+      @media screen and (max-width:450px) {
+        max-width: 25vh;
+      }
+
+      img {
+        width: 100%;
+        display: block;
+        border-radius: 50%;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: -15px;
+        border: 5px solid #282c34;
+        border-top-color: #5f6d89;
+        border-bottom-color: #7f8fb0;
+        border-radius: 50%;
+        animation: spin 3s ease-in-out infinite;
+      }
+    }
+  }
+
+  @keyframes logo_img-spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  .typewriter {
+    position: absolute;
+    top: 80%;
+    left: 46%;
+    color: #d1dddb;
+    user-select: none;
+
+    @media screen and (max-width:1400px) {
+      left: 43%;
+    }
+
+    @media screen and (max-width:750px) {
+      left: 40%;
+    }
+
+    @media screen and (max-width:550px) {
+      left: 36%;
+    }
+
+    @media screen and (max-width:450px) {
+      top: 70%;
+      font-size: 1.5rem;
+    }
+  }
+
+}
