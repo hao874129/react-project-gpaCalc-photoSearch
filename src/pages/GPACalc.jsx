@@ -236,7 +236,7 @@ const GPACalc = () => {
     let creditSum = 0; // GPA計算用分母
 
     gradeObjects.forEach(el => {
-      if (!isNaN(el.credit)&&el.grade) {
+      if (!isNaN(el.credit) && el.grade) {
         creditSum += (el.credit * 1)
         sum += (el.credit * 1) * convertor(el.grade)
       }
@@ -257,10 +257,17 @@ const GPACalc = () => {
   const handleSorting = useCallback((direction) => {
     setGradeObjects(draft =>
       draft.sort((a, b) => {
-        console.log(convertor(a.grade), convertor(b.grade));
+        // 如果a、b皆空白就不比
+        if (a.grade === b.grade) return 0
+        // 如果a為空白，則往後放
+        if (a.grade === '') return 1
+        // 如果b為空白，則a往前放
+        if (b.grade === '') return -1
+        // 升冪
         if (direction === 'ascending') {
           return convertor(a.grade) - convertor(b.grade)
         }
+        // 降冪
         else {
           return convertor(b.grade) - convertor(a.grade)
         }
@@ -277,7 +284,7 @@ const GPACalc = () => {
 
 
   return (
-    <div style={{ padding: '5rem 0', minHeight: "100vh" ,backgroundColor: '#F2F0ED'}}>
+    <div style={{ padding: '5rem 0', minHeight: "100vh", backgroundColor: '#F2F0ED' }}>
       <section className="gpa-calc">
         <Animation imgSrc={math} imgName='math' />
 
