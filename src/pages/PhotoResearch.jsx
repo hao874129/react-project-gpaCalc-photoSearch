@@ -8,6 +8,7 @@ import paint from '../assets/images/paint.jpg'
 
 const PhotoResearch = () => {
   const [input, setInput] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   const [currentSearch, setCurrentSearch] = useState('')
   const [photos, setPhotos] = useState(null)
   const [page, setPage] = useState(1)
@@ -41,6 +42,7 @@ const PhotoResearch = () => {
       try {
         let result = await axios.get(newURL, { headers: { Authorization: auth } })
         console.log(result);
+        setIsLoading(false)
         if (page === 1) {
           setPhotos(result.data.photos)
         } else {
@@ -48,6 +50,7 @@ const PhotoResearch = () => {
         }
       } catch (e) {
         console.log(e);
+        setIsLoading(false)
       }
     }
     fetchData()
@@ -59,7 +62,7 @@ const PhotoResearch = () => {
 
       <Animation imgSrc={paint} imgName='paint' />
 
-      <Search search={() => { search(input) }} setInput={setInput} />
+      <Search search={() => { search(input) }} setInput={setInput} isLoading={isLoading} setIsLoading={setIsLoading}/>
       <div className="pictures">
         {
           photos && photos.map(photo => (
@@ -69,7 +72,6 @@ const PhotoResearch = () => {
       </div>
       <div className="morePicture">
         <Button variant="contained" onClick={morePicture} color="second-color" sx={{ lineHeight: 0, color: "#fff" }} >view more...</Button>
-        {/* <button onClick={morePicture}>更多圖片</button> */}
       </div>
     </div>
   );

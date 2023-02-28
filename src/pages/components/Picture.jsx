@@ -7,7 +7,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 const Picture = ({ photo }) => {
-  // console.log(photo);
   return (
     <div className='picture'>
       <Card sx={{ maxWidth: 300 }} >

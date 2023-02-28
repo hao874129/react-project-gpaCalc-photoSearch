@@ -130,7 +130,6 @@ const GPACalc = () => {
 
   // 當object的select改變時，更換select的背景顏色
   const changeSelectColor = useCallback(target => {
-    // console.log(':::changeSelectColor');
     if (target.value === "A" || target.value === "A-") {
       target.style.backgroundColor = "lightgreen";
       target.style.color = "black";
@@ -176,15 +175,6 @@ const GPACalc = () => {
     setGradeObjects(draft => {
       draft.splice(ind, 1)
     })
-
-    // const form = e.target.parentElement.parentElement
-    // form.style.animation = "scaleDown 0.5s ease forwards"
-    // form.addEventListener("animationend", (e) => {
-    //   console.log(gradeObjects[ind]);
-    //   setGradeObjects(draft => {
-    //     draft.splice(ind, 1)
-    //   })
-    // });
   }, [setGradeObjects])
 
   // 增加成績輸入欄位
@@ -276,9 +266,7 @@ const GPACalc = () => {
   }, [setGradeObjects, convertor])
 
   useEffect(() => {
-    console.log(gradeObjects);
     calcGPA()
-    // updateAllSelectColor()
   }, [calcGPA, gradeObjects])
 
 
@@ -295,8 +283,6 @@ const GPACalc = () => {
         <div className="buttons">
           <Button variant="contained" onClick={() => { handleSorting('descending') }} color="main-darker" sx={{ lineHeight: 0 }} >降序排序</Button>
           <Button variant="contained" onClick={() => { handleSorting('ascending') }} color="main-darker" sx={{ lineHeight: 0 }} >升序排序</Button>
-          {/* <button class="btn sort-descending">降序排序</button>
-          <button class="btn sort-ascending">升序排序</button> */}
         </div>
 
         <div className="all-inputs">

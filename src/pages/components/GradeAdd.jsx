@@ -7,7 +7,6 @@ const GradeAdd = (props) => {
 
   useEffect(() => {
     const select = document.querySelectorAll('.select')
-    // console.log(select[ind]);
     changeSelectColor(select[ind])
   }, [gradeObject.grade, changeSelectColor, ind])
 
